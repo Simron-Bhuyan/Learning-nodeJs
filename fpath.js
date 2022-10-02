@@ -1,0 +1,26 @@
+const path=require('path')
+const {readFileSync,writeFileSync} = require('fs')
+const { writeFile } = require('fs')
+const _=require('lodash')
+console.log(path.sep)
+const items=[1,[2,[3,[4]]]]
+const newItems=_.flattenDeep(items)
+
+console.log(newItems)
+console.log(_.flattenDepth(items))
+const filepath = path.join('/NODETUTORIAL','subfolder','text.txt')
+console.log(filepath)
+const base= path.basename(filepath)
+console.log(base)
+const absolute=path.resolve(__dirname,'content','subfolder','text.txt')
+console.log(absolute)
+const first = readFileSync('./subfolder/first.txt','utf8')
+const second = readFileSync('./subfolder/second.txt','utf8')
+console.log(first,second)
+
+writeFileSync('./subfolder/newfile.txt','hello this is a brand new text for testing purposes')
+writeFileSync('./subfolder/newf.txt',`hello this is the result of combining: ${first},${second}`,{flag:'a'})
+// writeFile('./subfolder/newf.txt','hello there is a cat in your house!!!!!!',(err)=>{
+//     if(err)
+//     console.log('error encountered!!')
+// })
